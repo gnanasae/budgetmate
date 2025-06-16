@@ -28,7 +28,8 @@ const DataForm = ({ type, onAddItem, editingItem, cancelEdit, categories, debts,
         e.preventDefault();
         if (!source || !amount || parseFloat(amount) <= 0) { alert("Please fill all fields correctly."); return; }
         onAddItem(type, { source, amount: parseFloat(amount), category: type !== 'income' ? category : undefined }); 
-        setSource(''); setAmount(''); 
+        setSource(''); 
+        setAmount(''); 
     }; 
     
     return (

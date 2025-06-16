@@ -16,20 +16,9 @@ const DataTable = ({ title, data, type, onAddItem, onDeleteItem, onEditItem, for
                     <Table striped bordered hover responsive>
                         <thead><tr><th>Source/Item</th>{type!=='income'&&<th>Category</th>}<th>Date</th><th className="text-end">Amount</th><th className="text-center">Actions</th></tr></thead>
                         <tbody>
-                            {data && data.length > 0 ? data.map(i => (
-                                <tr key={i.id}>
-                                    <td>{i.source}</td>
-                                    {type!=='income'&&<td>{i.category}</td>}
-                                    <td>{formatDateTime(i.createdAt)}</td>
-                                    <td className="text-end">{formatCurrency(i.amount)}</td>
-                                    <td className="text-center">
-                                        <Button variant="outline-primary" size="sm" onClick={()=>onEditItem(type,i)} className="me-2"><Edit size={16}/></Button>
-                                        <Button variant="outline-danger" size="sm" onClick={()=>onDeleteItem(type,i.id)}><Trash2 size={16}/></Button>
-                                    </td>
-                                </tr>
-                            )) : <tr><td colSpan="5" className="text-center text-muted p-4">No {type} items yet.</td></tr>}
+                            {data && data.length > 0 ? data.map(i=>(<tr key={i.id}><td className="align-middle">{i.source}</td>{type!=='income'&&<td className="align-middle">{i.category}</td>}<td className="align-middle">{formatDateTime(i.createdAt)}</td><td className="text-end align-middle">{formatCurrency(i.amount)}</td><td className="text-center"><Button variant="outline-primary" size="sm" onClick={()=>onEditItem(type,i)} className="me-2"><Edit size={16}/></Button><Button variant="outline-danger" size="sm" onClick={()=>onDeleteItem(type,i.id)}><Trash2 size={16}/></Button></td></tr>)):<tr><td colSpan="5" className="text-center text-muted p-4">No {type} items yet.</td></tr>}
                         </tbody>
-                        <tfoot><tr className="fw-bold"><td colSpan={type==='income'?2:3}>Total</td><td className="text-end">{formatCurrency(total)}</td><td></td></tr></tfoot>
+                        <tfoot><tr className="fw-bold"><td colSpan={type==='income'?3:4}>Total</td><td className="text-end">{formatCurrency(total)}</td><td></td></tr></tfoot>
                     </Table>
                 </div>
             </Card.Body>
@@ -37,3 +26,4 @@ const DataTable = ({ title, data, type, onAddItem, onDeleteItem, onEditItem, for
     );
 };
 export default DataTable;
+

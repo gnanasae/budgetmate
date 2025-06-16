@@ -1,3 +1,68 @@
 body {
-  /* You can add global font styles or other base styles here if needed */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
+
+.category-card {
+    border: none !important;
+    border-radius: 1rem !important;
+    color: #212529;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+[data-bs-theme="dark"] .category-card {
+    color: #dee2e6;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-yellow { background-color: #FFF9C4 !important; }
+.bg-yellow-light { background-color: rgba(255, 236, 179, 0.5) !important; }
+.text-yellow-dark { color: #F57F17 !important; }
+
+.bg-blue { background-color: #E3F2FD !important; }
+.bg-blue-light { background-color: rgba(187, 222, 251, 0.5) !important; }
+.text-blue-dark { color: #0D47A1 !important; }
+
+.bg-orange { background-color: #FFCCBC !important; }
+.bg-orange-light { background-color: rgba(255, 204, 188, 0.5) !important; }
+.text-orange-dark { color: #D84315 !important; }
+
+.bg-purple { background-color: #E1BEE7 !important; }
+.bg-purple-light { background-color: rgba(225, 190, 231, 0.5) !important; }
+.text-purple-dark { color: #6A1B9A !important; }
+
+.bg-red { background-color: #FFCDD2 !important; }
+.bg-red-light { background-color: rgba(255, 205, 210, 0.5) !important; }
+.text-red-dark { color: #C62828 !important; }
+
+.bg-teal { background-color: #B2DFDB !important; }
+.bg-teal-light { background-color: rgba(178, 223, 219, 0.5) !important; }
+.text-teal-dark { color: #00695C !important; }
+
+.bg-green { background-color: #C8E6C9 !important; }
+.bg-green-light { background-color: rgba(200, 230, 201, 0.5) !important; }
+.text-green-dark { color: #2E7D32 !important; }
+
+.bg-cyan { background-color: #B2EBF2 !important; }
+.bg-cyan-light { background-color: rgba(178, 235, 242, 0.5) !important; }
+.text-cyan-dark { color: #00838F !important; }
+
+.bg-lime { background-color: #F0F4C3 !important; }
+.bg-lime-light { background-color: rgba(240, 244, 195, 0.5) !important; }
+.text-lime-dark { color: #9E9D24 !important; }
+
+.bg-gray { background-color: #F5F5F5 !important; }
+.bg-gray-light { background-color: rgba(224, 224, 224, 0.5) !important; }
+.text-gray-dark { color: #424242 !important; }

@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const MonthSelector = ({ selectedMonth, changeMonth }) => { 
     const d = new Date(`${selectedMonth}-02`); 
     return (
-        <Card className="my-4">
+        <Card className="my-4 shadow-sm border-0">
             <Card.Body>
                 <Row className="justify-content-center align-items-center">
                     <Col xs="auto">

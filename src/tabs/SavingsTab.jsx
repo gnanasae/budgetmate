@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { PiggyBank, Trash2, PlusCircle } from 'lucide-react';
+import { PiggyBank, Trash2 } from 'lucide-react';
 import { Card, Row, Col, Form, Button, ProgressBar } from 'react-bootstrap';
 
 const SavingsTab = ({ savingsGoals, onCreateGoal, onAddContribution, onDeleteGoal, formatCurrency }) => {

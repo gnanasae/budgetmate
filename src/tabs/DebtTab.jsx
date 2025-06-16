@@ -7,17 +7,7 @@ const DebtTab = ({ debts, onAddDebt, onDeleteDebt, onAddPayment, formatCurrency 
     const [totalAmount, setTotalAmount] = useState('');
     return (
         <div className="space-y-4">
-            <Card className="shadow-sm">
-                <Card.Body>
-                    <Form onSubmit={e => { e.preventDefault(); onAddDebt({ name, totalAmount: parseFloat(totalAmount) }); setName(''); setTotalAmount(''); }}>
-                        <Row className="g-2 align-items-end">
-                            <Col md><Form.Control value={name} onChange={e=>setName(e.target.value)} placeholder="Debt Name (e.g., Car Loan)" required /></Col>
-                            <Col md><Form.Control type="number" value={totalAmount} onChange={e=>setTotalAmount(e.target.value)} placeholder="Total Amount (₹)" required /></Col>
-                            <Col md="auto"><Button type="submit">Add Debt</Button></Col>
-                        </Row>
-                    </Form>
-                </Card.Body>
-            </Card>
+            <Card><Card.Body><Form onSubmit={e => { e.preventDefault(); onAddDebt({ name, totalAmount: parseFloat(totalAmount) }); setName(''); setTotalAmount(''); }}><Row className="g-2 align-items-end"><Col md><Form.Control value={name} onChange={e=>setName(e.target.value)} placeholder="Debt Name (e.g., Car Loan)" required /></Col><Col md><Form.Control type="number" value={totalAmount} onChange={e=>setTotalAmount(e.target.value)} placeholder="Total Amount (₹)" required /></Col><Col md="auto"><Button type="submit">Add Debt</Button></Col></Row></Form></Card.Body></Card>
             <Row className="g-4">
                 {debts.length > 0 ? debts.map(debt => <Col md={6} key={debt.id}><DebtCard debt={debt} onDelete={onDeleteDebt} onAddPayment={onAddPayment} formatCurrency={formatCurrency} /></Col>) : <p className="text-center text-muted py-5">No debts tracked. Add one above.</p>}
             </Row>
@@ -32,7 +22,7 @@ const DebtCard = ({ debt, onDelete, onAddPayment, formatCurrency }) => {
     const progress = debt.totalAmount > 0 ? (totalPaid / debt.totalAmount) * 100 : 0;
     return (
         <Card className="h-100 shadow-sm">
-            <Card.Body>
+            <Card.Body className="d-flex flex-column">
                 <div className="d-flex justify-content-between align-items-start">
                     <Card.Title as="h5" className="d-flex align-items-center mb-0"><Landmark size={20} className="me-2 text-danger"/>{debt.name}</Card.Title>
                     <Button variant="light" size="sm" onClick={() => onDelete(debt.id)}><Trash2 size={16}/></Button>
@@ -44,7 +34,7 @@ const DebtCard = ({ debt, onDelete, onAddPayment, formatCurrency }) => {
                         <span>Remaining: {formatCurrency(remaining)}</span>
                     </div>
                 </div>
-                <Form onSubmit={e=>{e.preventDefault(); onAddPayment(debt.id, parseFloat(payment)); setPayment('');}} className="d-flex gap-2">
+                <Form onSubmit={e=>{e.preventDefault(); onAddPayment(debt.id, parseFloat(payment)); setPayment('');}} className="d-flex gap-2 mt-auto">
                     <Form.Control type="number" value={payment} onChange={e=>setPayment(e.target.value)} placeholder="Pay Amount" size="sm" required/>
                     <Button type="submit" variant="success" size="sm">Pay</Button>
                 </Form>
